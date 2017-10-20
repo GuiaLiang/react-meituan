@@ -6,6 +6,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as userInfoActionsCreator from '../actions/userInfo'
 
+import RouteMap from '@/router/routeMap'
+
 class App extends Component {
 	constructor(props, context) {
 		super(props, context);
@@ -33,7 +35,7 @@ class App extends Component {
 			<div>
 				{
 					this.state.initDone
-					? this.props.children
+					? <RouteMap />
 					: <div>加载中...</div>
 				}
 			</div>

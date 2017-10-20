@@ -14,7 +14,7 @@ class Home extends Component {
 	render() {
 		return (
 			<div>
-				<HomeHeader cityName={this.props.userInfo.get('cityName')} />
+				<HomeHeader history={this.props.history} cityName={this.props.userInfo.get('cityName')} />
 				<Category />
 				<WhiteBar heightValue={'15px'} />
 				<Ad />

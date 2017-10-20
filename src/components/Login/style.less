@@ -1,0 +1,87 @@
+.login-container {
+	width: 80%;
+	margin: 4.267rem auto;
+
+	input {
+		font-size: 0.427rem;
+		width: 100%;
+		display: inline-block;
+
+		&::placeholder {
+			color: #ccc;
+		}
+	}
+
+	i {
+		font-size: 0.427rem;
+		color: rgb(233, 32, 61);
+		width: 0.427rem;
+		height: 0.427rem;
+	}
+
+	.tel-wrap {
+		background-color: #fff;
+		position: relative;
+		padding: 0.1rem;
+		border-radius: 0.133rem;
+
+		i {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0.1rem;
+			text-align: center;
+		}
+
+		input {
+			text-indent: 0.6rem;
+		}
+	}
+
+	.checkcode-wrap {
+		margin-top: 0.267rem;
+		display: flex;
+		position: relative;
+		padding: 0.1rem;
+		background-color: #fff;
+		border-radius: 0.133rem;
+
+		i {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0.1rem;
+			text-align: center;
+		}
+
+		input {
+			text-indent: 0.6rem;
+			flex-grow: 1;
+		}
+
+		button {
+			width: 3.9rem;
+			font-size: 0.373rem;
+			text-align: center;
+			&.unsend {
+				color: rgb(233, 32, 61);
+			}
+			&.send {
+				color: #ccc;
+			}
+		}
+	}
+
+	.login-btn {
+		margin-top: 0.267rem;
+		border-radius: 0.133rem;
+		width: 100%;
+		padding: 0.1rem;
+		background-color: rgb(233, 32, 61);
+		border: none;
+		font-size: 0.427rem;
+		color: #fff;
+		outline: none;
+	}
+	
+}

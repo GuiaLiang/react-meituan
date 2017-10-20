@@ -43,6 +43,28 @@ router.get('/api/homelistimg/shops/:img', async(ctx, next) => {
 	ctx.body = await readFile('./static/shops/' + ctx.params.img);
 })
 
+router.get('/api/search/:city/:category/:keyword/:page', async(ctx, next) => {
+	const params = ctx.params
+	const city = params.city
+	const category = params.category
+	const keyword = params.keyword
+	const page = params.page
+
+	ctx.body = homeListData
+})
+
+var infoData = require('./detail/info')
+router.get('/api/detail/:id', async(ctx, next) => {
+	ctx.body = infoData;
+})
+
+var commentListData = require('./detail/comment')
+router.get('/api/detail/comment/:id/:page', async(ctx, next) => {
+	console.log(`商店ID：${ctx.params.id}`)
+	console.log(`评论页码：${ctx.params.page}`)
+	ctx.body = commentListData
+})
+
 app.use(router.routes())
    .use(router.allowedMethods());
 
