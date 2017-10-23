@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import BuyAndStore from '@/components/BuyAndStore'
+
+import * as storeActionsCreator from '@/actions/store'
 
 class Buy extends Component {
 	constructor() {
@@ -12,6 +15,10 @@ class Buy extends Component {
 
 		this.handleBuy = this.handleBuy.bind(this)
 		this.handleStore = this.handleStore.bind(this)
+	}
+
+	componentDidMount() {
+		this.checkStoreState();
 	}
 
 	handleBuy() {
@@ -26,7 +33,42 @@ class Buy extends Component {
 	}
 
 	handleStore() {
+		const isLogin = this.checkLogin();
+		if(isLogin) {
+			const storeID = this.props.storeID;
+			const storeActions = this.props.storeActions;
+			if(this.state.isStore) {
+				// 从已收藏变为为收藏
+				storeActions.rm({
+					id: storeID
+				})
+			} else {
+				// 变为已收藏
+				storeActions.add({
+					id: storeID
+				})
+			}
 
+			this.setState({
+				isStore: !this.state.isStore
+			})
+		}
+	}
+
+	checkStoreState() {
+		// 检查是否被收藏
+		const storeID = this.props.storeID;
+		const store = this.props.store;
+
+		store.some(x => {
+			if(x.id === storeID) {
+				this.setState({
+					isStore: true
+				})
+
+				return true;
+			}
+		})
 	}
 
 	checkLogin() {
@@ -50,10 +92,18 @@ class Buy extends Component {
 
 function mapStateToProps(state) {
 	return {
-		userInfo: state.userInfo
+		userInfo: state.userInfo,
+		store: state.store
+	}
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		storeActions: bindActionCreators(storeActionsCreator, dispatch)
 	}
 }
 
 export default connect(
-	mapStateToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(Buy)

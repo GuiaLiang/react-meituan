@@ -5,10 +5,13 @@ import './style.less'
 class Header extends Component {
 	constructor(props) {
 		super(props);
+
+		this.handleBack = this.handleBack.bind(this)
 	}
 
 	handleBack() {
-		window.history.back();
+		const backRouter = this.props.backRouter;
+		backRouter? this.props.history.push(backRouter) : window.history.back();
 	}
 
 	render() {

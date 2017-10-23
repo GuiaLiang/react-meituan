@@ -13,5 +13,8 @@
     "koa": "^2.3.0",
     "koa-body": "^2.5.0",
     "koa-router": "^7.2.1"
+  },
+  "dependencies": {
+    "koa-body": "^2.5.0"
   }
 }

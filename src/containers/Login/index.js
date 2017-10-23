@@ -47,7 +47,7 @@ class Login extends Component {
 		// 跳转页面
 		const params = this.props.match.params;
 		if(params.router) {
-			this.props.history.push(params.router)
+			this.props.history.replace(decodeURIComponent(params.router))
 		} else {
 			this._goUserPage();
 		}

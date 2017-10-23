@@ -1,4 +1,4 @@
-import * as actionTypes from '@/constants/userInfo'
+import * as actionTypes from '@/constants/store'
 
 export function update(data) {
 	return {
